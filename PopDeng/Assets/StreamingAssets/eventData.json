@@ -1,0 +1,130 @@
+{
+  "eventList": [
+    {
+      "id": 0,
+      "nameEvent": "",
+      "type": "",
+      "trigger": true
+    },
+    {
+      "id": 1,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 2,
+      "nameEvent": "",
+      "type": "",
+      "trigger": true
+    },
+    {
+      "id": 3,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 4,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 5,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 6,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 7,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 8,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 9,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 10,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 11,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 12,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 13,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 14,
+      "nameEvent": "",
+      "type": "",
+      "trigger": true
+    },
+    {
+      "id": 15,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 16,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 17,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 18,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 19,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    },
+    {
+      "id": 20,
+      "nameEvent": "",
+      "type": "",
+      "trigger": false
+    }
+  ]
+}
