@@ -38,6 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background
+    uniqueID: 2731520003
+    locked: 0
+  - name: decorations
+    uniqueID: 571742181
+    locked: 0
+  - name: computer screen
+    uniqueID: 3544934385
+    locked: 0
+  - name: popUp
+    uniqueID: 2863586867
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

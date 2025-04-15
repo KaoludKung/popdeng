@@ -10,13 +10,16 @@ public class DialogueManager : EventObject
     [SerializeField] private Conversation conversation;
     [SerializeField] private DialogueOption dialogueOption;
     [SerializeField] private DialogueUI dialogueUI;
-    [SerializeField] private GameObject uiManagerObject;
-    [SerializeField] private Animator[] animators;
+
+    //Another option
     [SerializeField] List<ItemActive> itemActives;
+
+    //[SerializeField] private GameObject uiManagerObject;
+    //[SerializeField] private Animator[] animators;
     //[SerializeField] private bool resetAnimation = false;
     [SerializeField] private bool playerEnable = false;
 
-    private float speed;
+    private float speed = 0.05f;
     private int index;
     private int charIndex;
     private bool started;
@@ -27,72 +30,22 @@ public class DialogueManager : EventObject
     private void Awake()
     {
         Time.timeScale = 0;
-
-        if (PlayerPrefs.HasKey("speedText"))
-        {
-            speed = PlayerPrefs.GetFloat("speedText");
-        }
-        else
-        {
-            PlayerPrefs.SetFloat("speedText", 0.05f);
-            speed = PlayerPrefs.GetFloat("speedText");
-        }
-
-        if(speed == 0.05)
-        {
-            dialogueUI.speedText.text = "Speed up";
-        }
-        else
-        {
-            dialogueUI.speedText.text = "Slow down";
-        }
+        UIManager.Instance.SetActiveUI(false);
     }
 
 
     void Start()
     {
-        //CharacterManager.Instance.SetIsActive(false);
-        //CharacterManager.Instance.SetActiveUIPlayer(false);
-        //CharacterManager.Instance.StopMoving();
-
-        if (uiManagerObject != null)
-            uiManagerObject.SetActive(false);
-
         if (!started && !EventManager.Instance.IsEventTriggered(eventID))
             return;
 
         started = true;
         GetDialogue(0);
-
     }
 
     void Update()
     {
-        if (InputManager.Instance.IsEnterPressed())
-        {
-            if (started)
-            {
-                if (speed == 0.05f)
-                {
-                    speed = 0.015f;
-                    PlayerPrefs.SetFloat("speedText", speed);
-                    //speed = PlayerPrefs.GetFloat("speedText");
-                    dialogueUI.speedText.text = "Slow down";
-                }
-                else
-                {
-                    speed = 0.05f;
-                    PlayerPrefs.SetFloat("speedText", speed);
-                    //speed = PlayerPrefs.GetFloat("speedText");
-                    dialogueUI.speedText.text = "Speed up";
-                }
-
-                //Debug.Log("Speed:" + speed);
-            }
-        }
-
-
-        if (InputManager.Instance.IsZPressed())
+        if (Input.GetMouseButtonDown(0))
         {
             if (isWriting)
             {
@@ -126,27 +79,8 @@ public class DialogueManager : EventObject
 
         string currentName = conversation.lines[i].character.fullname;
         string currentText = conversation.lines[i].text;
-        //Sprite currentSprite = conversation.lines[i].character.portrait;
 
         SetActiveItem(i);
-
-        /*
-        if (dialogueOption == DialogueOption.FullDisplay)
-        {
-            foreach (Animator animator in animators)
-            {
-                if (animator != null && animator.gameObject.name == currentName)
-                {
-                    animator.SetInteger(conversation.lines[i].character.animationCondition, conversation.lines[i].character.conditionID);
-                    break;
-                }
-            }
-        }
-        else
-        {
-            Debug.Log("No Animation");
-        }
-        */
 
         dialogueUI.ShowDialogue(currentName, currentText, dialogueOption);
         StartCoroutine(Writing());
@@ -210,29 +144,11 @@ public class DialogueManager : EventObject
     {
         yield return new WaitForSecondsRealtime(durationUnlock);
         EventManager.Instance.UpdateEventDataTrigger(TriggerEventID, true);
-        Time.timeScale = 1;
 
-        /*
-        if (resetAnimation)
-        {
-            for (int i = 0; i < animators.Length; i++)
-            {
-                animators[i].SetInteger("IdleVariant", 0);
-            }
-        }
-        */
+        if(playerEnable)
+            UIManager.Instance.SetActiveUI(true);
 
-        if (playerEnable)
-        {
-            yield return new WaitForSecondsRealtime(1.0f);
-            
-            if (uiManagerObject != null)
-                uiManagerObject.SetActive(true);
-
-            //CharacterManager.Instance.SetIsActive(true);
-            //CharacterManager.Instance.SetActiveUIPlayer(true);
-        }
-       
+        Time.timeScale = 1;  
     }
 }
 

@@ -9,10 +9,10 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueName;
     [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private Image dialogueSprite;
+    //[SerializeField] private Image dialogueSprite;
     [SerializeField] private Image arrowSprite;
     [SerializeField] private AudioSource typingSound;
-    public TextMeshProUGUI speedText;
+    //public TextMeshProUGUI speedText;
 
     private bool isPlayingOneShot = false;
 
@@ -48,7 +48,7 @@ public class DialogueUI : MonoBehaviour
         else
         {
             dialogueName.text = string.Empty;
-            dialogueSprite.sprite = null;
+            //dialogueSprite.sprite = null;
         }
 
         TogglePanel(true);
@@ -72,7 +72,7 @@ public class DialogueUI : MonoBehaviour
         {
             typingSound.clip = character.typing;
 
-            if (character.fullname == "Freund")
+            if (character.fullname == "XD")
             {
                 if (!isPlayingOneShot)
                 {

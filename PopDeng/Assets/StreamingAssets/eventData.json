@@ -2,14 +2,14 @@
   "eventList": [
     {
       "id": 0,
-      "nameEvent": "",
-      "type": "",
+      "nameEvent": "Intro",
+      "type": "Dialogue",
       "trigger": true
     },
     {
       "id": 1,
-      "nameEvent": "",
-      "type": "",
+      "nameEvent": "Guide to open computer",
+      "type": "Object Active",
       "trigger": false
     },
     {

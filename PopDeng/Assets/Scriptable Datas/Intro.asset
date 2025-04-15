@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0dc24e6a77c5a9438a97135c1d8511f, type: 3}
+  m_Name: Intro
+  m_EditorClassIdentifier: 
+  titleName: Intro
+  lines:
+  - character: {fileID: 11400000, guid: 5596f0004299c1540975558acfb09fe3, type: 2}
+    text: Damn it! Billy beat my score again. And now he's in the Top 1000?
+  - character: {fileID: 11400000, guid: 5596f0004299c1540975558acfb09fe3, type: 2}
+    text: "I won\u2019t give up. If I can\u2019t beat him tonight, I\u2019m not leaving
+      this game. \r"
+  - character: {fileID: 11400000, guid: 5596f0004299c1540975558acfb09fe3, type: 2}
+    text: But first, I need to turn on my computer before I can play PopDeng.
