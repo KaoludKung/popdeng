@@ -47,8 +47,14 @@ TagManager:
   - name: computer screen
     uniqueID: 3544934385
     locked: 0
+  - name: inbox
+    uniqueID: 284696283
+    locked: 0
   - name: popUp
     uniqueID: 2863586867
+    locked: 0
+  - name: popDeng
+    uniqueID: 3571936501
     locked: 0
   - name: Default
     uniqueID: 0

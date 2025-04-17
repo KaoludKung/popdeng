@@ -23,7 +23,7 @@ public class ClickUnlockEvent : MonoBehaviour, IPointerClickHandler
 
         if(eventClip != null)
         {
-            SoundFXManager.instance.PlaySoundFXClip(eventClip, transform, false, 1.0f);
+            SoundFXManager.Instance.PlaySoundFXClip(eventClip, transform, false, 1.0f);
             yield return new WaitForSeconds(eventClip.length);
         }
 

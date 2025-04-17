@@ -32,7 +32,7 @@ public class Flashlight : MonoBehaviour
     {
         if (backCamera != null && backCamera.activeSelf)
         {
-            SoundFXManager.instance.PlaySoundFXClip(flashLightClip, transform, false, 1.0f);
+            SoundFXManager.Instance.PlaySoundFXClip(flashLightClip, transform, false, 1.0f);
 
             if (batteryStamina > 0)
             {

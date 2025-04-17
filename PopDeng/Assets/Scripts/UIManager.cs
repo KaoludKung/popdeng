@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+    //0: change camera buttons 1: flashlight button 2: flashlight's life
     [SerializeField] private GameObject[] uiObject;
 
     private void Awake()
@@ -17,24 +18,12 @@ public class UIManager : MonoBehaviour
         Instance = this;
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SetActiveUI(bool value)
     {
         for(int i = 0; i < uiObject.Length; i++)
         {
-            if((i == 1 || i == 2) && !EventManager.Instance.IsEventTriggered(20))
+            //Event 5th power cut is unlock flashlight system
+            if((i == 1 || i == 2) && !EventManager.Instance.IsEventTriggered(5))
             {
                 Debug.Log("Flashlight isn't enable now");
             }

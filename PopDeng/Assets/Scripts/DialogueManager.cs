@@ -11,6 +11,9 @@ public class DialogueManager : EventObject
     [SerializeField] private DialogueOption dialogueOption;
     [SerializeField] private DialogueUI dialogueUI;
 
+    //protect from click object in computer while dialogue is playing
+    [SerializeField] private GameObject detectPanel;
+
     //Another option
     [SerializeField] List<ItemActive> itemActives;
 
@@ -31,6 +34,8 @@ public class DialogueManager : EventObject
     {
         Time.timeScale = 0;
         UIManager.Instance.SetActiveUI(false);
+        detectPanel.SetActive(true);
+        Cursor.visible = false;
     }
 
 
@@ -148,7 +153,9 @@ public class DialogueManager : EventObject
         if(playerEnable)
             UIManager.Instance.SetActiveUI(true);
 
-        Time.timeScale = 1;  
+        Time.timeScale = 1;
+        Cursor.visible = true;
+        detectPanel.SetActive(false);
     }
 }
 

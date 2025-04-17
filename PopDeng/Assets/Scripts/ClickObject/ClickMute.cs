@@ -5,10 +5,21 @@ using UnityEngine.EventSystems;
 
 public class ClickMute : MonoBehaviour, IPointerClickHandler
 {
+    public static ClickMute Instance;
     [SerializeField] GameObject speakerIcon;
     [SerializeField] Sprite[] speakerSprite;
 
     private bool isMute = false;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -28,6 +39,10 @@ public class ClickMute : MonoBehaviour, IPointerClickHandler
         {
             speakerIcon.GetComponent<SpriteRenderer>().sprite = speakerSprite[0];
         }
+    }
 
+    public bool GetIsMute()
+    {
+        return isMute;
     }
 }

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SoundFXManager : MonoBehaviour
 {
-    public static SoundFXManager instance;
+    public static SoundFXManager Instance;
     public AudioSource soundFXPrefab;
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, bool spatialBlend, float volume, float? minDistance = null, float? maxDistance = null)
