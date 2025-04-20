@@ -43,6 +43,10 @@ public class Flashlight : MonoBehaviour
                 {
                     if (batteryCoroutine == null)
                         batteryCoroutine = StartCoroutine(DecreaseBattery());
+
+                    if (Monsdeng.Instance != null)
+                        Monsdeng.Instance.StopEnemy();
+
                 }
                 else
                 {
@@ -102,7 +106,7 @@ public class Flashlight : MonoBehaviour
         while (batteryStamina > 0)
         {
             batteryStamina = Mathf.Max(batteryStamina - 0.5f, 0);
-            Debug.Log("Battery Life: " + batteryStamina);
+            //Debug.Log("Battery Life: " + batteryStamina);
             yield return new WaitForSeconds(1.0f);
         }
 

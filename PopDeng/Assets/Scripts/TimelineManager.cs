@@ -5,7 +5,16 @@ using UnityEngine.Playables;
 public class TimelineManager : EventObject
 {
     [SerializeField] private PlayableDirector timeline;
-    //[SerializeField] private bool playerEnable = false;
+    [SerializeField] private bool playerEnable = true;
+
+    private void Awake()
+    {
+        if (!playerEnable)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
 
     void Start()
     {
@@ -30,13 +39,15 @@ public class TimelineManager : EventObject
         */
     }
 
-    /*
+
     private IEnumerator UnlockPlayer()
     {
         if (playerEnable)
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(0.5f);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
-    */
+
 }

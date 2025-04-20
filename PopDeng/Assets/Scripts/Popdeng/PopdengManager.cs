@@ -22,7 +22,7 @@ public class PopdengManager : MonoBehaviour
     void Update()
     {
         //When player click moodeng first time then game start
-        if(scores == 0 && moodengDesktop.activeSelf && !isStart)
+        if(scores >= 0 && moodengDesktop.activeSelf && !isStart)
         {
             isStart = true;
             StartCoroutine(StartGame());

@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ending.unity
     guid: 5b70da060c577974d973b59903b12a93
+  - enabled: 1
+    path: Assets/Scenes/JumpScare.unity
+    guid: 0c0e46963a3a06b47907f9c8bbebbd7c
   m_configObjects: {}

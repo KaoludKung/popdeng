@@ -48,13 +48,13 @@ public class PopupManager : MonoBehaviour
         TextMeshProUGUI detailText = newpopUp.transform.Find("popup_detail").GetComponent<TextMeshProUGUI>();
         Image iconImage = newpopUp.transform.Find("popup_icon").GetComponent<Image>();
 
-        string randomTitle = randomTitles[Random.Range(0, randomTitles.Length)];
+        //string randomTitle = randomTitles[Random.Range(0, randomTitles.Length)];
         string randomDetail = randomDetails[Random.Range(0, randomDetails.Length)];
-        Sprite randomIcon = randomIcons[Random.Range(0, randomIcons.Length)];
+        //Sprite randomIcon = randomIcons[Random.Range(0, randomIcons.Length)];
 
-        titleText.text = randomTitle;
+        titleText.text = randomTitles[0];
         detailText.text = randomDetail.Replace("\\n", "\n"); ;
-        iconImage.sprite = randomIcon;
+        iconImage.sprite = randomIcons[0];
     }
 
     public void CreateManualPopup(string title, string detail, int iconID)

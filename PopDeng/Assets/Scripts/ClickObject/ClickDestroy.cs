@@ -10,7 +10,6 @@ public class ClickDestroy : MonoBehaviour, IPointerClickHandler
     [SerializeField] private float times = 0.8f;
     [SerializeField] private bool isDestroy = true;
     
-
     private bool isClicked = false;
     private ProgramActive programActive;
 

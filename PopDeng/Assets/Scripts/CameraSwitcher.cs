@@ -8,6 +8,8 @@ public class CameraSwitcher : MonoBehaviour
     //0: front camera, 1: back camera
     [SerializeField] private Camera[] cameras;
     [SerializeField] private Button switchButton;
+    [SerializeField] private GameObject flashlightButton;
+    [SerializeField] private int requirementEvent;
     private int currentCameraIndex;
 
     void Start()
@@ -27,6 +29,7 @@ public class CameraSwitcher : MonoBehaviour
         {
             int nextIndex = (currentCameraIndex == 0) ? 1 : 0;
             SwitchCamera(nextIndex);
+            FlashlightEnable();
         });
     }
 
@@ -41,5 +44,20 @@ public class CameraSwitcher : MonoBehaviour
         cameras[currentCameraIndex].gameObject.SetActive(false);
         currentCameraIndex = index;
         cameras[currentCameraIndex].gameObject.SetActive(true);
+    }
+
+    public void FlashlightEnable()
+    {
+        if (EventManager.Instance.IsEventTriggered(requirementEvent))
+        {
+            if (currentCameraIndex == 0)
+            {
+                flashlightButton.SetActive(false);
+            }
+            else if (currentCameraIndex == 1)
+            {
+                flashlightButton.SetActive(true);
+            }
+        }
     }
 }

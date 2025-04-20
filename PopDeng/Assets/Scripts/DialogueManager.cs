@@ -36,6 +36,7 @@ public class DialogueManager : EventObject
         UIManager.Instance.SetActiveUI(false);
         detectPanel.SetActive(true);
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 
@@ -155,6 +156,7 @@ public class DialogueManager : EventObject
 
         Time.timeScale = 1;
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         detectPanel.SetActive(false);
     }
 }
