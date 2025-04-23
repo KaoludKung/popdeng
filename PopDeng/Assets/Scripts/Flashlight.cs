@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering.Universal;
+using TMPro;
 
 public class Flashlight : MonoBehaviour
 {
@@ -10,9 +11,11 @@ public class Flashlight : MonoBehaviour
     [SerializeField] private Button flashlightButton;
     [SerializeField] private Light2D flashLight;
     [SerializeField] private AudioClip flashLightClip;
+    [SerializeField] private TextMeshProUGUI statusText;
     [SerializeField] private GameObject[] batteryLife;
 
-    private float batteryStamina = 100f;
+    [SerializeField] private float batteryStamina = 100f;
+    [SerializeField] private float maxStamina = 100f;
     private bool isOpen = false;
     private Coroutine batteryCoroutine;
 
@@ -38,6 +41,7 @@ public class Flashlight : MonoBehaviour
             {
                 isOpen = !isOpen;
                 flashLight.intensity = isOpen ? 1.0f : 0.0f;
+                statusText.text = isOpen ? "Status: On" : "Status: Off";
 
                 if (isOpen)
                 {
@@ -70,19 +74,19 @@ public class Flashlight : MonoBehaviour
 
     void ShowBatteryLife()
     {
-        if (batteryStamina > 75)
+        if (batteryStamina/maxStamina * 100 > 75)
         {
             ActivateBatteryLife(4);
         }
-        else if (batteryStamina > 50)
+        else if (batteryStamina / maxStamina * 100 > 50)
         {
             ActivateBatteryLife(3);
         }
-        else if (batteryStamina > 25)
+        else if (batteryStamina / maxStamina * 100 > 25)
         {
             ActivateBatteryLife(2);
         }
-        else if (batteryStamina > 0)
+        else if (batteryStamina / maxStamina * 100 > 0)
         {
             ActivateBatteryLife(1);
         }
@@ -105,7 +109,7 @@ public class Flashlight : MonoBehaviour
     {
         while (batteryStamina > 0)
         {
-            batteryStamina = Mathf.Max(batteryStamina - 0.5f, 0);
+            batteryStamina = Mathf.Max(batteryStamina - 0.8f, 0);
             //Debug.Log("Battery Life: " + batteryStamina);
             yield return new WaitForSeconds(1.0f);
         }

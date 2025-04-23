@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class Monsdeng : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Monsdeng : MonoBehaviour
     //Moodengs have 5 phases
     [SerializeField] private GameObject[] monsterVisual;
     [SerializeField] private Light2D flashLight;
+    [SerializeField] private AudioSource heartbeatSoure;
     [SerializeField] private int maxPhase = 5;
 
     [SerializeField] private int initialDelay = 10; // Initial delay for phase transition
@@ -19,6 +21,7 @@ public class Monsdeng : MonoBehaviour
     private int currentDelay;
     private int currentPhase = 0;
     private Coroutine huntingCoroutine;
+    private PopdengManager popdengManager;
 
     private void Awake()
     {
@@ -37,6 +40,19 @@ public class Monsdeng : MonoBehaviour
     {
         currentDelay = initialDelay;
         huntingCoroutine = StartCoroutine(Hunting());
+        popdengManager = FindAnyObjectByType<PopdengManager>();
+    }
+
+    private void Update()
+    {
+        if (currentPhase > 3 && !heartbeatSoure.isPlaying)
+        {
+            heartbeatSoure.Play();
+        }
+        else if (currentPhase <= 3 && heartbeatSoure.isPlaying)
+        {
+            heartbeatSoure.Stop();
+        }
     }
 
     IEnumerator Hunting()
@@ -50,16 +66,16 @@ public class Monsdeng : MonoBehaviour
             }
             else
             {
-                int randomDelay = Random.Range(2, currentDelay + 1);
+                int randomDelay = Random.Range(3, currentDelay + 1);
                 yield return new WaitForSeconds(randomDelay);
             }
-          
+            
             currentPhase++;
 
             if (currentPhase >= maxPhase)
             {
                 // Player failed to stop the enemy
-                GameOver();
+                StartCoroutine(GameOver());
                 yield break;
             }
 
@@ -87,7 +103,7 @@ public class Monsdeng : MonoBehaviour
     //Another script use this method
     public void StopEnemy()
     {
-        if(currentPhase > 1)
+        if(currentPhase > 1 && flashLight.intensity == 1)
             StartCoroutine(ResetEnemy());
     }
 
@@ -134,11 +150,21 @@ public class Monsdeng : MonoBehaviour
         }
     }
 
-    void GameOver()
+    IEnumerator GameOver()
     {
         //When currentIndex => maxPhase then Game Over!!!
         PlayerPrefs.SetInt("Monster", 0);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Jumpscare");
+
+        if (SceneManager.GetActiveScene().name == "Endless")
+        {
+            PlayerDataManager.Instance.UpdateScores(popdengManager.GetScore());
+            PlayerDataManager.Instance.UpdateIsEndlessmode(true);
+            PlayerDataManager.Instance.SavePlayerData();
+        }
+        
+        yield return null;
+
+        SceneManager.LoadScene("Jumpscare");
     }
 
     void OnDisable()

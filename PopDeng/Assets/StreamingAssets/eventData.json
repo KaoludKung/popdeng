@@ -14,116 +14,92 @@
     },
     {
       "id": 2,
-      "nameEvent": "",
-      "type": "",
-      "trigger": true
+      "nameEvent": "Windows Active",
+      "type": "Timeline",
+      "trigger": false
     },
     {
       "id": 3,
-      "nameEvent": "",
-      "type": "",
+      "nameEvent": "EventChecker Activate",
+      "type": "EventChecker",
       "trigger": false
     },
     {
       "id": 4,
-      "nameEvent": "",
-      "type": "",
+      "nameEvent": "Power Cut",
+      "type": "Timeline",
       "trigger": false
     },
     {
       "id": 5,
-      "nameEvent": "",
-      "type": "",
+      "nameEvent": "PowerOut D",
+      "type": "Dialogue",
       "trigger": false
     },
     {
       "id": 6,
-      "nameEvent": "",
-      "type": "",
+      "nameEvent": "Door open?",
+      "type": "Timeline",
       "trigger": false
     },
     {
       "id": 7,
-      "nameEvent": "",
-      "type": "",
+      "nameEvent": "Monsters appear",
+      "type": "Enemy",
       "trigger": false
     },
     {
       "id": 8,
-      "nameEvent": "",
-      "type": "",
+      "nameEvent": "Game Clear",
+      "type": "Timeline",
       "trigger": false
     },
     {
       "id": 9,
-      "nameEvent": "",
-      "type": "",
+      "nameEvent": "Ending",
+      "type": "Dialogue",
       "trigger": false
     },
     {
       "id": 10,
-      "nameEvent": "",
-      "type": "",
+      "nameEvent": "Go To Ending Scene",
+      "type": "Timeline",
       "trigger": false
     },
     {
       "id": 11,
-      "nameEvent": "",
-      "type": "",
-      "trigger": false
+      "nameEvent": "Guide to open computer (Endless)",
+      "type": "Object Active",
+      "trigger": true
     },
     {
       "id": 12,
-      "nameEvent": "",
-      "type": "",
+      "nameEvent": "Windows Active (Endless)",
+      "type": "Timeline",
       "trigger": false
     },
     {
       "id": 13,
-      "nameEvent": "",
-      "type": "",
+      "nameEvent": "EventChecker Activate (Endless)",
+      "type": "EventChecker",
       "trigger": false
     },
     {
       "id": 14,
-      "nameEvent": "",
-      "type": "",
-      "trigger": true
+      "nameEvent": "Power Cut (Endless)",
+      "type": "Timeline",
+      "trigger": false
     },
     {
       "id": 15,
-      "nameEvent": "",
-      "type": "",
+      "nameEvent": "Door open? (Endless)",
+      "type": "Timeline",
       "trigger": false
     },
     {
       "id": 16,
-      "nameEvent": "",
-      "type": "",
-      "trigger": false
-    },
-    {
-      "id": 17,
-      "nameEvent": "",
-      "type": "",
-      "trigger": false
-    },
-    {
-      "id": 18,
-      "nameEvent": "",
-      "type": "",
-      "trigger": false
-    },
-    {
-      "id": 19,
-      "nameEvent": "",
-      "type": "",
-      "trigger": false
-    },
-    {
-      "id": 20,
-      "nameEvent": "",
-      "type": "",
+      "nameEvent": "Monsters appear (Endless)",
+      "type": "Enemy",
       "trigger": false
     }
   ]

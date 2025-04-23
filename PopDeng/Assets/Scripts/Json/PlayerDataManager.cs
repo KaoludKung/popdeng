@@ -10,12 +10,14 @@ public class PlayerData
     public bool isEndlessmode;
     public bool unlockEndless;
     public int scores;
+    public int highScores;
 
-    public PlayerData(bool isEndlessmode, bool unlockEndless, int scores)
+    public PlayerData(bool isEndlessmode, bool unlockEndless, int scores, int highScores)
     {
         this.isEndlessmode = isEndlessmode;
         this.unlockEndless = unlockEndless;
         this.scores = scores;
+        this.highScores = highScores;
     }
 }
 
@@ -118,7 +120,11 @@ public class PlayerDataManager : JsonManager<PlayerData>
         return playerData != null ? playerData.scores : 0;
     }
 
-   
+    public int GetHighScores()
+    {
+        return playerData != null ? playerData.highScores : 0;
+    }
+
     public void UpdateIsEndlessmode(bool value)
     {
         if (playerData != null)
@@ -145,6 +151,16 @@ public class PlayerDataManager : JsonManager<PlayerData>
         {
             playerData.scores = score;
             Debug.Log($"Updated Scores to: {score}");
+            //SavePlayerData();
+        }
+    }
+
+    public void UpdateHighScores(int score)
+    {
+        if (playerData != null)
+        {
+            playerData.highScores = score;
+            Debug.Log($"Updated HighScores to: {score}");
             //SavePlayerData();
         }
     }

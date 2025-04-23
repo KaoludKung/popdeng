@@ -11,6 +11,7 @@ public class PopdengManager : MonoBehaviour
     [SerializeField] private GameObject[] popdengUI;
     private int scores;
     private bool isStart = false;
+    const int MaxScore = 9999999;
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +71,14 @@ public class PopdengManager : MonoBehaviour
     //Show score, Use in another Script
     public void ShowScoreText()
     {
-        scoreText.text = scores.ToString();
+        if(scores > MaxScore)
+        {
+            scoreText.text = MaxScore.ToString("N0");
+        }
+        else
+        {
+            scoreText.text = scores.ToString("N0");
+        }
     }
 
     //Click moodeng to add point, Use in another Script

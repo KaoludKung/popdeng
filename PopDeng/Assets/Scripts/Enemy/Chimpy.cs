@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Chimpy : MonoBehaviour
 {
@@ -9,12 +10,14 @@ public class Chimpy : MonoBehaviour
     [SerializeField] float timeLimit = 20f; // Time limit for players to resolve an active spawn point
 
     private bool isSpawn = false; // Flag to check if Chimpy is already spawned
-    private Coroutine timeOutCoroutine; // Reference to the timeout coroutine
+    private Coroutine timeOutCoroutine;
+    private PopdengManager popdengManager;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SpawnChimpy());
+        popdengManager = FindAnyObjectByType<PopdengManager>();
     }
 
     // Update is called once per frame
@@ -74,8 +77,18 @@ public class Chimpy : MonoBehaviour
         }
 
         // If the timer expires and any spawn point is still active, trigger the scene change
-        PlayerPrefs.SetInt("Monster", 1); 
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Jumpscare"); 
+        PlayerPrefs.SetInt("Monster", 1);
+
+        if (SceneManager.GetActiveScene().name == "Endless")
+        {
+            PlayerDataManager.Instance.UpdateScores(popdengManager.GetScore());
+            PlayerDataManager.Instance.UpdateIsEndlessmode(true);
+            PlayerDataManager.Instance.SavePlayerData();
+        }
+
+        yield return null;
+
+        SceneManager.LoadScene("Jumpscare"); 
     }
 
     private bool AllSpawnPointsInactive()

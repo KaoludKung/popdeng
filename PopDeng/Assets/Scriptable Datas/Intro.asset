@@ -15,7 +15,7 @@ MonoBehaviour:
   titleName: Intro
   lines:
   - character: {fileID: 11400000, guid: 5596f0004299c1540975558acfb09fe3, type: 2}
-    text: Damn it! Billy beat my score again. And now he's in the Top 1000?
+    text: Damn it! Billy beat my score again. And now he's in the Top 10,000?
   - character: {fileID: 11400000, guid: 5596f0004299c1540975558acfb09fe3, type: 2}
     text: "I won\u2019t give up. If I can\u2019t beat him tonight, I\u2019m not leaving
       this game. \r"
